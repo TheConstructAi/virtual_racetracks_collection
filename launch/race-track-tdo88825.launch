@@ -1,0 +1,43 @@
+<launch>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 37.333 4.251 0 0 0 map cooper_1_odom" />  
+  <arg name="h" value="header: {frame_id: 'map', seq: 0, stamp: {nsecs: 0, secs: 0}}" />
+  <arg name="orientation" value="orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}" />
+  <arg name="scale" value="scale: {x: 0.2, y: 0.2, z: 0.2}" />
+  <arg name="red_color" value="color: {a: 1.0, b: 0.0, g: 0.0, r: 1.0}"/>
+  <arg name="yellow_color" value="color: {a: 1.0, b: 0.0, g: 1.0, r: 1.0}"/>
+  <arg name="position" value="position: {x: 0.0, y: 0.0, z: 0.0}"/>
+  <arg name="pose" value="pose: {$(arg orientation), $(arg position)}"/>
+  <arg name="lt" value="lifetime: {nsecs: 0, secs: 0}"/>
+  <!-- start of race track coordinates -->
+  <arg name="p1" value="{x: 1.0, y: 0.0, z: 0.0}"/>
+  <arg name="p2" value="{x: 1.0, y: 10.0, z: 0.0}"/>
+  <arg name="p3" value="{x: 8.0, y: 10.0, z: 0.0}"/>
+  <arg name="p4" value="{x: 8.0, y: 0.0, z: 0.0}"/>
+  <arg name="p5" value="{x: 1.0, y: 0.0, z: 0.0}"/>
+
+  <arg name="ps-1" value="{x: 1.0, y: 5.0, z: 0.0}"/>
+  <arg name="ps-2" value="{x: 2.0, y: 5.0, z: 0.0}"/>
+  <arg name="ps-3" value="{x: 4.0, y: 6.0, z: 0.0}"/>
+  <arg name="ps-4" value="{x: 4.0, y: 8.0, z: 0.0}"/>
+  <arg name="ps-5" value="{x: 5.0, y: 6.0, z: 0.0}"/>
+  <arg name="ps-6" value="{x: 7.0, y: 7.0, z: 0.0}"/>
+  <arg name="ps-7" value="{x: 6.0, y: 5.0, z: 0.0}"/>
+  <arg name="ps-8" value="{x: 7.0, y: 3.0, z: 0.0}"/>
+  <arg name="ps-9" value="{x: 5.0, y: 4.0, z: 0.0}"/>
+  <arg name="ps-10" value="{x: 4.0, y: 2.0, z: 0.0}"/>
+  <arg name="ps-11" value="{x: 4.0, y: 4.0, z: 0.0}"/>
+  <arg name="ps-12" value="{x: 2.0, y: 5.0, z: 0.0}"/>
+  <!-- end of race track coordinates -->
+
+  <!-- list of points that draw the racetrack -->
+  <arg name="pts" value="points: [$(arg p1),$(arg p2),$(arg p3),$(arg p4),$(arg p5)]"/>  
+  <arg name="pts-star" value="points: [$(arg ps-1),$(arg ps-2),$(arg ps-3),$(arg ps-4),$(arg ps-5),$(arg ps-6),$(arg ps-7),$(arg ps-8),$(arg ps-9),$(arg ps-10),$(arg ps-11),$(arg ps-12)]"/>  
+  
+  <arg name="marker" value="'{$(arg h), ns: 'MWS', id: 0, type: 4, action: 0, $(arg pose), $(arg scale), $(arg red_color), $(arg lt), $(arg pts)}'" />
+  <arg name="marker-star" value="'{$(arg h), ns: 'MWS', id: 1, type: 4, action: 0, $(arg pose), $(arg scale), $(arg yellow_color), $(arg lt), $(arg pts-star)}'" />
+  
+  <node name="pub1" pkg="rostopic" type="rostopic" args="pub /shape visualization_msgs/Marker $(arg marker)"/>
+  <node name="pub1_star" pkg="rostopic" type="rostopic" args="pub /shape visualization_msgs/Marker $(arg marker-star)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find virtual_racetracks_collection)/config/racetrack.rviz"/>
+
+</launch>
