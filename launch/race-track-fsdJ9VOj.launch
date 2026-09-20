@@ -11,18 +11,19 @@
   <arg name="p1" value="{x: 2.0, y: 2.0, z: 0.0}"/>
   <arg name="p2" value="{x: 3.0, y: 1.0, z: 0.0}"/>
   <arg name="p3" value="{x: 4.0, y: 1.0, z: 0.0}"/>
-  <arg name="p4" value="{x: 5.0, y: 2.0, z: 0.0}"/>
+  <arg name="p4" value="{x: 5.0, y: 6.0, z: 0.0}"/>
   <arg name="p5" value="{x: 6.0, y: 2.0, z: 0.0}"/>
   <arg name="p6" value="{x: 7.0, y: 0.5, z: 0.0}"/>
   <arg name="p7" value="{x: 8.0, y: 1.0, z: 0.0}"/>
-  <arg name="p8" value="{x: 10.0, y: 2.0, z: 0.0}"/>
+  <arg name="p8" value="{x: 10.0, y: 5.0, z: 0.0}"/>
   <arg name="p9" value="{x: 9.0, y: 6.0, z: 0.0}"/>
-  <arg name="p10" value="{x: 8.0, y: 10.0, z: 0.0}"/>
+  <arg name="p10" value="{x: 8.0, y: 9.0, z: 0.0}"/>
   <arg name="p11" value="{x: 4.0, y: 8.0, z: 0.0}"/>
   <arg name="p12" value="{x: 3.0, y: 7.0, z: 0.0}"/>
   <arg name="p13" value="{x: 3.0, y: 5.0, z: 0.0}"/>
   <arg name="p14" value="{x: 2.0, y: 4.0, z: 0.0}"/>
   <arg name="p15" value="{x: 2.0, y: 2.0, z: 0.0}"/>
+  <!--                 A DINOSAUR                -->
   <!-- end of race track coordinates -->
 
   <!-- list of points that draw the racetrack -->
